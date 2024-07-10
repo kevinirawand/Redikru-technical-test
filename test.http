@@ -1,0 +1,15 @@
+### Get Job list
+GET http://localhost:3000/api/jobs?companyName=Harapan
+Accept: application/json
+
+
+### Create New Job
+POST http://localhost:3000/api/jobs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "companyId": "007b43a6-3e80-11ef-a580-04d4c4de4bcb",
+  "title": "KEVIN",
+  "description": "TEST DESC JOB 1"
+}
