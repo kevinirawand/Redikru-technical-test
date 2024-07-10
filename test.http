@@ -1,5 +1,5 @@
 ### Get Job list
-GET http://localhost:3000/api/jobs?companyName=Harapan
+GET http://localhost:3000/api/jobs?companyName=asd
 Accept: application/json
 
 
@@ -10,6 +10,5 @@ Content-Type: application/json
 
 {
   "companyId": "007b43a6-3e80-11ef-a580-04d4c4de4bcb",
-  "title": "KEVIN",
-  "description": "TEST DESC JOB 1"
+  "title": "KEVIN"
 }

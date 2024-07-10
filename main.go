@@ -3,6 +3,7 @@ package main
 import (
 	"Redikru-technical-test/app"
 	"Redikru-technical-test/controller"
+	"Redikru-technical-test/execption"
 	"Redikru-technical-test/helper"
 	"Redikru-technical-test/repository"
 	"Redikru-technical-test/service"
@@ -27,6 +28,8 @@ func main() {
 
 	router.GET("/api/jobs", jobController.FindAll)
 	router.POST("/api/jobs", jobController.Create)
+
+	router.PanicHandler = execption.ErrorHandler
 
 	server := http.Server{
 		Addr:    "localhost:3000",
