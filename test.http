@@ -1,5 +1,6 @@
 ### Get Job list
-GET http://localhost:3000/api/jobs?companyName=asd
+GET http://localhost:3000/api/jobs?companyName=COBA
+X-API-Key: RAHASIA
 Accept: application/json
 
 

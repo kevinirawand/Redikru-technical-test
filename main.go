@@ -5,6 +5,7 @@ import (
 	"Redikru-technical-test/controller"
 	"Redikru-technical-test/execption"
 	"Redikru-technical-test/helper"
+	"Redikru-technical-test/middleware"
 	"Redikru-technical-test/repository"
 	"Redikru-technical-test/service"
 	"fmt"
@@ -33,7 +34,7 @@ func main() {
 
 	server := http.Server{
 		Addr:    "localhost:3000",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
 	err := server.ListenAndServe()
