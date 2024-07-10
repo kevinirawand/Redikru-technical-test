@@ -3,7 +3,6 @@ package main
 import (
 	"Redikru-technical-test/app"
 	"Redikru-technical-test/controller"
-	"Redikru-technical-test/execption"
 	"Redikru-technical-test/helper"
 	"Redikru-technical-test/middleware"
 	"Redikru-technical-test/repository"
@@ -11,7 +10,6 @@ import (
 	"fmt"
 	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
 
@@ -25,12 +23,8 @@ func main() {
 	JobRepository := repository.NewJobRepository()
 	jobService := service.NewJobService(JobRepository, db, validate)
 	jobController := controller.NewJobController(jobService)
-	router := httprouter.New()
 
-	router.GET("/api/jobs", jobController.FindAll)
-	router.POST("/api/jobs", jobController.Create)
-
-	router.PanicHandler = execption.ErrorHandler
+	router := app.NewRouter(jobController)
 
 	server := http.Server{
 		Addr:    "localhost:3000",
